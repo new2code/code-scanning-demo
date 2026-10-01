@@ -3,9 +3,13 @@ const app = express();
 
 const site = await Bun.file("./index.html").text();
 
-app.get("/", async (req, res) => {
-  let greet = site.replace("%%_USER_NAME%%", req.query.name);
-  res.send(greet);
+app.get('/user/:id', function(req, res) {
+  if (!isValidUserId(req.params.id))
+    // GOOD: request parameter is sanitized before incorporating it into the response
+    res.send("Unknown user: " + escape(req.params.id));
+  else
+    // TODO: do something exciting
+    ;
 });
 
 app.listen(8080, () => {
