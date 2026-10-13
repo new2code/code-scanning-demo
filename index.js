@@ -1,10 +1,11 @@
 const express = require("express");
+const escape_html=require("escape-html");
 const app = express();
 
 const site = await Bun.file("./index.html").text();
 
 app.get("/", async (req, res) => {
-  let greet = site.replace("%%_USER_NAME%%", req.query.name);
+  let greet = site.replace("%%_USER_NAME%%", escape_html(req.query.name));
   res.send(greet);
 });
 
