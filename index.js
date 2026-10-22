@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 
-const site = await Bun.file("./index.html").text();
+const site = Bun.file("./index.html").textSync();
 
-app.get("/", async (req, res) => {
-  let greet = site.replace("%%_USER_NAME%%", req.query.name);
+app.get("/", (req, res) => {
+  const name = req.query.name || "Гость";
+  const greet = site.replace("%%_USER_NAME%%", name);
   res.send(greet);
 });
 
