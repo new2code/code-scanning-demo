@@ -1,6 +1,6 @@
 # Code scanning demo
 
-A repository that builds a simple, insecure webpage to demo the power of code scanning.
+A repository that builds a simple test, insecure webpage to demo the power of code scanning.
 
 > [!IMPORTANT]
 > The code in this repository includes a security vulnerability, and should only be used to complete the exercises in [Finding and fixing your first code vulnerability](https://docs.github.com/get-started/learning-to-code/finding-and-fixing-your-first-code-vulnerability).
